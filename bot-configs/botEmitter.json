@@ -1,0 +1,33 @@
+{
+  "bot_id": "botEmitter",
+  "description": "trading bot/engine with an added snapshot emitter image",
+  
+  "model": "ollama", 
+  // Options: "ollama", "lmstudio", "huggingface"
+  
+  "ollama_url": "http://ollama:11434/api/generate",
+  "ollama_model": "llama3.2:latest",
+  
+  "lmstudio_url": "http://lmstudio:1234/v1/chat/completions",
+  "lmstudio_model": "mistral-7b-instruct",
+  
+  "hf_model": "bigscience/bloomz-7b1",
+  "hf_api_key": "YOUR_HF_API_KEY",
+  
+  "temperature": 0.7,
+  "max_tokens": 1024,
+  
+  "vector_namespace": "botEmitter_vectors",
+  "vector_top_k": 5,
+  
+  "logging": {
+    "audit_enabled": true,
+    "telemetry_enabled": true,
+    "log_level": "info"
+  },
+  
+  "fallback": {
+    "enabled": true,
+    "order": ["ollama", "lmstudio", "huggingface"]
+  }
+}
